@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - product-service
+      - order-service
+      - customer-service
+
+  product-service:
+    build: ./product-service
+    ports:
+      - "3001:3000"
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3002:3000"
+
+  customer-service:
+    build: ./customer-service
+    ports:
+      - "3003:3000"
